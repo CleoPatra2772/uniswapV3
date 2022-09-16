@@ -53,3 +53,89 @@ body{
 .hoverBold:hover {
   font-weight: 800;
 }
+
+/* Swap Container */
+
+.app-body{
+  height: 100%;
+  padding: 80px;
+}
+
+.swap-container{
+  background-color: #FFA6C9;
+  width: 440px;
+  height: 350px;
+  margin: 0 auto;
+  border-radius: 24px;
+  border: 1px solid #fff;
+  padding: 6px;
+}
+.swap-header{
+  text-align: left;
+  padding: 4px 20px 0 px 20px;
+}
+
+.swap-text{
+  color: #000;
+  font-size: 20px;
+  padding: 0px 5px;
+}
+.gear-container{
+  float: right;
+  font-size: 22px;
+  padding: 0px 5px;
+}
+
+/* Modal */
+
+.modaly{
+  position: fixed;
+  left:0;
+  top:-510px;
+  right: -110px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(213, 0, 102);
+}
+
+.modal-content{
+  background-color: #fff;
+  width: 300px !important;
+  padding: 10px 25px;
+  background-color: #fddde6 !important;
+  border: 1px solid white !important;
+  border-radius: 12px !important;
+
+}
+
+.modal-title{
+  margin: auto;
+}
+.title-header{
+  margin-left: -12px;
+
+}
+
+.label-filed{
+  padding-left: 0px !important;
+}
+
+.field-container{
+  padding-left: 0px !important;
+}
+
+.input-field{
+  padding-left: 10px;
+  border-radius: 36px;
+  border: 1px solid;
+  height: 2rem;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.input-field-units-container{
+  padding-left: 0 !important;
+  padding-top: 14px;
+}
