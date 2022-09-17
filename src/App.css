@@ -139,3 +139,82 @@ body{
   padding-left: 0 !important;
   padding-top: 14px;
 }
+
+/* Currency Input */
+
+.currency-input{
+  background-color: #fddde6;
+  margin: 10px !important;
+  padding: 10px;
+  border-radius: 20px;
+
+}
+
+
+.currency-input:hover{
+  border-color: rgb(213, 0, 102) !important;
+  border: 1px solid;
+}
+::placeholder {
+  opacity: 0.25;
+}
+
+.number-container{
+  text-align: left;
+}
+
+.spinner-container{
+  height: 55px;
+  line-height: 55px;
+
+}
+
+.currency-input-field{
+  font-size: 28px;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  
+}
+
+.token-container{
+  text-align: center;
+}
+
+.token-name{
+  font-size: 28px;
+  display: block;
+  color:#000;
+}
+
+.balance-container{
+  display: block;
+}
+
+.balance-amount{
+  width: 100%;
+  font-size: 16px;
+  display: inline;
+  color: #000;
+}
+
+.ratio-container {
+  text-align: left;
+  margin-left: 10px;
+  height: 28px;
+}
+
+.swap-button-container {
+  margin: 10px;
+}
+.swap-button {
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  font-size: 24px;
+  color: #fff;
+  border-radius: 20px;
+  background-color: #dd2f81;
+  cursor: pointer
+}
+

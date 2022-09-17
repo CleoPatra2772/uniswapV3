@@ -9,8 +9,8 @@ const REACT_APP_INFURA_URL_TESTNET = process.env.REACT_APP_INFURA_URL_TESTNET
 
 const chainId = 3 
 
-const Web3Provider = new ethers.providers.JsonRpcProvider(REACT_APP_INFURA_URL_TESTNET)
-router = new AlphaRouter = ({chainId: chainId, provider: Web3Provider})
+const web3Provider = new ethers.providers.JsonRpcProvider(REACT_APP_INFURA_URL_TESTNET)
+const router = new AlphaRouter({ chainId: chainId, provider: web3Provider })
 
 const name0 = 'Wrapped Ether'
 const symbol0 = 'WETH'
@@ -25,8 +25,8 @@ const address1 = '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984'
 const WETH = new Token(chainId, address0, decimals0, symbol0, name0)
 const UNI = new Token(chainId,address1,decimals1,symbol1, name1)
 
-export const getWethContract = () => new ethers.Contract(address0, ERC20ABI, Web3Provider)
-export const getUniContract = () => new ethers.Contract(address1, ERC20ABI, Web3Provider)
+export const getWethContract = () => new ethers.Contract(address0, ERC20ABI, web3Provider)
+export const getUniContract = () => new ethers.Contract(address1, ERC20ABI, web3Provider)
 
 export const getPrice = async (inputAmount, slippageAmount, deadline, walletAddress ) => {
     const precentSlippage =  new Percent(slippageAmount, 100)
@@ -56,7 +56,7 @@ export const getPrice = async (inputAmount, slippageAmount, deadline, walletAddr
     }
 
     const quoteAmountOut = route.quote.toFixed(6)
-    const ratio = (quoteAmountOut / inputAmount).toFixed(3)
+    const ratio = (inputAmount / quoteAmountOut).toFixed(3)
 
     return[
         transaction,

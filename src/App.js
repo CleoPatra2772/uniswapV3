@@ -25,9 +25,9 @@ function App() {
   const [loading, setLoading] = useState(undefined);
   const [ratio, setRatio] = useState(undefined);
   const [wethContract, setWethContract] = useState(undefined);
-  const [uniContract, setUniContract]= useEffect(undefined);
-  const [weiAmount, setWeiAmount] = useEffect(undefined);
-  const [uniAmount, setUniAmount] = useEffect(undefined);
+  const [uniContract, setUniContract]= useState(undefined);
+  const [weiAmount, setWeiAmount] = useState(undefined);
+  const [uniAmount, setUniAmount] = useState(undefined);
 
 
 
@@ -74,6 +74,23 @@ function App() {
 
   if(signer !== undefined) {
     getWalletAddress()
+  }
+
+  const getSwapPrice = (inputAmount) => {
+    setLoading(true)
+    setInputAmount(inputAmount)
+
+    const swap = getPrice(
+      inputAmount,
+      slippageAmount,
+      Math.floor(Date.now()/1000 + (deadlineMinutes * 60)),
+      signerAddress
+     ).then(data => {
+      setTransaction(data[0])
+      setOutputAmount(data[1])
+      setRatio(data[2])
+      setLoading(false)
+     })
   }
 
 
@@ -126,7 +143,7 @@ function App() {
                 tokenName='WETH'
                 getSwapPrice={getSwapPrice}
                 signer={signer}
-                balance={wethAmount}
+                balance={weiAmount}
                 />
 
                 <CurrencyField
@@ -140,6 +157,27 @@ function App() {
                 loading={loading}
                 />
 
+              </div>
+              <div className='ratio-container'>
+                {ratio && (
+                  <>
+                    {`1 UNI = ${ratio} WETH`}
+                  </>
+                )}
+              </div>
+
+              <div className='swap-button-container'>
+                {isConnected() ? (
+                  <div onClick={() => runSwap(transaction, signer)
+                  }
+                  className='swap-button'
+                  >Swap</div>
+                ) : (
+                  <div onClick={() => getSigner(provider)}
+                  className='swap-button'>
+                    Connect Wallet
+                  </div>
+                )}
               </div>
         </div>
       </div>
