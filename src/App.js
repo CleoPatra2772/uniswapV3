@@ -6,7 +6,9 @@ import ConfigModal from './components/ConfigModal';
 import { GearFill } from 'react-bootstrap-icons';
 import BeatLoader from 'react-spinners/BeatLoader';
 import './App.css';
-import {getWethContract, getUniContract} from './AlphaRouterService';
+import {getWethContract, getUniContract, getPrice, runSwap } from './AlphaRouterService';
+import CurrencyField from './components/CurrencyField';
+
 
 function App() {
   const [provider, setProvider] = useState(undefined);
